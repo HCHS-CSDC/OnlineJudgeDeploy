@@ -11,8 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: tgymnich/fork-sync@v1.4
+      - name: Sync Upstream
+        uses: dabreadman/sync-upstream-repo@v1.0.0.b
         with:
-          owner: QingdaoU
-          base: 2.0
-          head: 2.0
+          # URL of gitHub public upstream repo
+          upstream_repo: "https://github.com/QingdaoU/OnlineJudgeDeploy.git"
+          # Branch to merge from upstream (defaults to downstream branch)
+          upstream_branch: "2.0"
+          # Branch to merge into downstream
+          downstream_branch: "2.0"
+          # GitHub Bot token
+          token: ${{ secrets.GITHUB_TOKEN }}
